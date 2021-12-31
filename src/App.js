@@ -1,15 +1,16 @@
-import React, { createRef } from 'react'
+import React from 'react'
 import { BrowserRouter, Route } from "react-router-dom";
 import Header from './components/Header'
 import Homepage from './pages/Homepage'
 import CoinPage from './pages/CoinPage'
 
 import './App.css';
+import { ThemeProvider } from "@material-ui/core/styles";
+import { unstable_createMuiStrictModeTheme } from '@material-ui/core/styles';
 import { makeStyles } from '@material-ui/core'
 
 function App() {
-  const appRef = createRef();
-
+  const theme = unstable_createMuiStrictModeTheme();
   const useStyles = makeStyles(() => ({
     App: {
       backgroundColor: '#14161a',
@@ -21,13 +22,15 @@ function App() {
   const classes = useStyles()
 
   return (
-    <BrowserRouter ref={appRef}>
-      <div className={classes.App}>
-        <Header />
-        <Route path="/" component={Homepage} exact />
-        <Route path="/coins/:id" component={CoinPage} />
-      </div>
-    </BrowserRouter>
+    <ThemeProvider theme = {theme}>
+      <BrowserRouter>
+        <div className={classes.App}>
+          <Header />
+          <Route path="/" component={Homepage} exact />
+          <Route path="/coins/:id" component={CoinPage} />
+        </div>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 
