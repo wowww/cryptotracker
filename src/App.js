@@ -1,3 +1,4 @@
+import React, { createRef } from 'react'
 import { BrowserRouter, Route } from "react-router-dom";
 import Header from './components/Header'
 import Homepage from './pages/Homepage'
@@ -7,6 +8,7 @@ import './App.css';
 import { makeStyles } from '@material-ui/core'
 
 function App() {
+  const appRef = createRef();
 
   const useStyles = makeStyles(() => ({
     App: {
@@ -19,7 +21,7 @@ function App() {
   const classes = useStyles()
 
   return (
-    <BrowserRouter>
+    <BrowserRouter ref={appRef}>
       <div className={classes.App}>
         <Header />
         <Route path="/" component={Homepage} exact />
