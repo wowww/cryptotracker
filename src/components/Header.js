@@ -2,6 +2,7 @@ import React from 'react'
 import { AppBar, Container, MenuItem, Select, Toolbar, Typography, ThemeProvider } from '@material-ui/core'
 import { makeStyles, createTheme } from '@material-ui/core'
 import { useHistory } from 'react-router-dom'
+import { CryptoState } from '../CryptoContext'
 
 const useStyles = makeStyles(() => ({
   title: {
@@ -17,6 +18,11 @@ const Header = () => {
 
   const classes = useStyles();
   const history = useHistory();
+  
+  const { currency, setCurrency } = CryptoState();
+
+  console.log(currency, setCurrency)
+
   const darkTheme = createTheme({
     palette: {
       primary: {
@@ -38,6 +44,8 @@ const Header = () => {
             <Select 
               variant="outlined"
               style={{ width: 100, height: 40, marginRight: 15 }}
+              value={currency}
+              onChange={(e) => setCurrency(e.target.value)}
             >
               <MenuItem value={'USD'}>USD</MenuItem>
               <MenuItem value={'KRW'}>KRW</MenuItem>
