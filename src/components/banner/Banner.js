@@ -38,6 +38,16 @@ const Banner = () => {
           >
             Crypto 
           </Typography>
+          <Typography
+            variant="subtitle2"
+            style={{
+              color: "darkgrey",
+              textTransform: "capitalize",
+              fontFamily: "Montserrat",
+            }}
+          >
+            Get all the Info regarding your favorite Crypto Currency
+          </Typography>
         </div>
       </Container>
     </div>
