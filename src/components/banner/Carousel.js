@@ -11,7 +11,15 @@ const useStyles = makeStyles(() => ({
     height: "50%",
     display: "flex",
     alignItems: "center",
-  }
+  },
+  carouselItem: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    cursor: "pointer",
+    textTransform: "uppercase",
+    color: "white",
+  },
 }))
 
 export function numberWithCommas(x){
@@ -46,15 +54,20 @@ const Carousel = () => {
           src={coin?.image}
           alt={coin.name}
           height="80"
-          style={{marginBottom: 10}}
+          style={{ marginBottom: 10 }}
         />
         <span>
           {coin?.symbol} &nbsp;
-          <span>{profit && "+"} {coin?.price_change_percentage_24h?.toFixed(2)}%</span>
+          <span
+            style={{
+              color: profit > 0 ? "rgb(54, 150, 240)" : "red",
+              fontWeight: 500,
+            }}
+          >{profit && "+"}{coin?.price_change_percentage_24h?.toFixed(2)}%</span>
+        </span>
           <span style={{ fontSize: 22, fontWeight: 500 }}>
             {symbol} {numberWithCommas(coin?.current_price.toFixed(2))}
           </span>
-        </span>
       </Link>
     )
   })
