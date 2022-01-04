@@ -112,7 +112,7 @@ export default function CoinsTable() {
                         fontFamily: "Montserrat",
                       }}
                       key={head}
-                      // align={head === "Coin" ? "" : "right"}
+                      align={head === "Coin" ? "" : "right"}
                     >
                       {head}
                     </TableCell>
