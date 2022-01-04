@@ -1,12 +1,12 @@
 import React from 'react'
 import Banner from '../components/banner/Banner'
-import CoinTable from '../components/CoinTable'
+import CoinsTable from '../components/CoinsTable'
 
 const Homepage = () => {
   return (
     <>
       <Banner />
-      <CoinTable />
+      <CoinsTable />
     </>
   )
 }
