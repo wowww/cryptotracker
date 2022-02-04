@@ -23,7 +23,7 @@ function App() {
 
   return (
     <ThemeProvider theme = {theme}>
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <div className={classes.App}>
           <Header />
           <Route path="/" component={Homepage} exact />
